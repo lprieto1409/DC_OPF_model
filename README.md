@@ -1,11 +1,11 @@
 # DC OPF model
 
-The direct current (DC) optimal power flow (OPF) model is created through the Flood Resiliency Study by NC Policy Collaboratory. This model is designed to simulate the North Carolina grid behavior while accounting for the hourly impacts of flooding on power system components across space. The model represents a network of 662 nodes and 790 high-voltage transmission lines, and it uses Gridkit's OpenStreetMap data and geographic information from various public sources. Additionally, it utilizes hourly time series data for solar, nuclear, hydropower, and electricity load to minimize costs while meeting hourly electricity demand and maintaining operational reserves. The model is Python-based, employing Pyomo and Gurobi, and it operates on a 24-hour horizon, providing hourly outputs such as generation schedules, nodal shadow costs, loss of load, and power flows.
+The DC optimal power flow (OPF) model, developed as part of the Flood Resiliency Study by the NC Policy Collaboratory, simulates the intricacies of the North Carolina grid, considering hourly flooding impacts on power system components. With 662 nodes and 790 high-voltage transmission lines, the model integrates [Gridkit's OpenStreetMap data][https://zenodo.org/records/47317] as the base for the network topology. Incorporating hourly time series data for solar, nuclear, hydropower, and electricity load, it employs Python, Pyomo, and Gurobi for a 24-hour operational horizon. The optimization process navigates generator, transmission, and nodal constraints to minimize costs while meeting demand and maintaining reserves. Decision variables encompass on/off status, electricity production, and load shedding, while special attention is given to substation equipment elevation as a hardening method during extreme weather events. The model yields hourly outputs, including generation schedules, nodal shadow costs, loss of load, and power flows, offering vital insights for proactive planning in resilient power systems and vulnerable communities.
 
-DC OPF model allows user to explore:
+DC OPF model allows users to explore:
 * Impacts of inland flooding at distinct depths. 
 * Number of nodes to retain in the system
-* Mathematical formulation, user can choose to formulate the problem as:
+* Mathematical formulation, users can choose to formulate the problem as follows:
   * Linear programming (LP)
   * Mixed integer linear programming (MILP)
 
