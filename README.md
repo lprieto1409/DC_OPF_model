@@ -9,5 +9,16 @@ DC OPF model allows users to explore:
   * Linear programming (LP)
   * Mixed integer linear programming (MILP)
 
+For reference, in the DC OPF model are the following:
+ | File Name | Description |
+|--------|-----|
+| gen_mat.py   | Binary file showing which generators are connected to which buses | 
+| line_to_bus.py  | Binary file showing which lines are connected to which buses | 
+| MTS_LP.py    | This contains the LP problem formulation of DC OPF model.  | 
+| MTS_MILP.py    | This contains the MILP problem formulation of DC OPF model.  |
+| MTSDataSetup.py    | Python script that creates "MTS_data.dat" file which includes all data above in a format accessible by Pyomo  | 
+| wrapper.py    | 	This script calls an optimization solver, starts the simulations, and returns the model outputs.  | 
+
+
 
 
