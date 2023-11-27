@@ -8,16 +8,52 @@ DC OPF model allows users to explore:
 * Mathematical formulation, users can choose to formulate the problem as follows:
   * Linear programming (LP)
   * Mixed integer linear programming (MILP)
+    
+# Running the DC OPF model
+1. **Open the File:**
+   - Open the file named `MTSDataSetup.py`.
 
-For reference, in the DC OPF model are the following:
+2. **Update Input Directory:**
+   - Locate the line in the file specifying the directory for main inputs. Modify it to match your current working directory:
+     ```python
+     folder = '/home/../Inputs/'
+     ```
+     
+3. **Replace Input Values:**
+   - Substitute the values for outage data, solar power, and hourly load in the file, considering the influence of flooding on these grid assets.
+
+4. **Save and Execute:**
+   - Save the changes in "MTSDataSetup.py" and run the file.
+
+5. **Check Output:**
+   - Look for the generated output file named "MTS_data.dat."
+
+6. **Open "wrapper.py":**
+   - Open the file named `wrapper.py`.
+
+7. **Set Output Directory:**
+   - Update the location of the model outputs by replacing the `folder_2` variable.
+
+8. **Choose Simulation Duration:**
+   - Select the number of days for simulation by modifying the "days" variable.
+    
+9. **Select Solver:**
+   - Choose a solver for the model (e.g. Gurobi, CPLEX).
+
+10. **Run and Verify:**
+    - Execute the "wrapper.py" file and check the generated outputs.
+
+Follow these steps to configure and run the DC OPF model with the specified inputs and simulation parameters.
+
+For reference, the files in the DC OPF model are the following:
  | File Name | Description |
 |--------|-----|
-| gen_mat.py   | Binary file showing which generators are connected to which buses | 
-| line_to_bus.py  | Binary file showing which lines are connected to which buses | 
-| MTS_LP.py    | This contains the LP problem formulation of DC OPF model.  | 
-| MTS_MILP.py    | This contains the MILP problem formulation of DC OPF model.  |
-| MTSDataSetup.py    | Python script that creates "MTS_data.dat" file which includes all data above in a format accessible by Pyomo  | 
-| wrapper.py    | 	This script calls an optimization solver, starts the simulations, and returns the model outputs.  | 
+| gen_mat.py   | A binary file indicating the buses to which generators are linked.| 
+| line_to_bus.py  | A binary file revealing the connections between buses and their associated lines. | 
+| MTS_LP.py    | This encompasses the LP problem formulation of DC OPF model.  | 
+| MTS_MILP.py    | This encompasses the MILP problem formulation of DC OPF model.  |
+| MTSDataSetup.py    | A Python script is created to generate an "MTS_data.dat" file, incorporating the provided information in a format compatible with Pyomo.  | 
+| wrapper.py    | 	This script invokes an optimization solver, initiates the simulations, and retrieves the outputs of the model. | 
 
 
 
