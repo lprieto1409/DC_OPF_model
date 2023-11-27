@@ -55,6 +55,22 @@ For reference, the files in the DC OPF model are the following:
 | MTSDataSetup.py    | A Python script is created to generate an "MTS_data.dat" file, incorporating the provided information in a format compatible with Pyomo.  | 
 | wrapper.py    | 	This script invokes an optimization solver, initiates the simulations, and retrieves the outputs of the model. | 
 
+# Flooding impacts on grid assets
+
+The study employs spatial-temporal analysis, using variograms and kriging, to assess flooding depth across river basins. Substations become inoperable if flooding depth equals or exceeds sensitive equipment height, causing electricity outages, generator failures, and disrupted transmission lines. Flooded solar farms cease energy output. Due to limited equipment height data, scenarios from 0 to 10 feet are tested. Hourly estimates of impacted substations and solar farms guide adjustments to the DC OPF model for real-time grid response to flooding. This approach provides concise insights into spatial and temporal flooding impacts on critical grid assets.
+
+For reference, the files used for the flooding analysis are the following:
+ | File Name | Folder | Description |
+|--------|-----|-----|
+| Krig_Cape.py   | Spatial Kriging | A Python script that performs parallelized hourly Ordinary Kriging interpolation for flooding depth data in the Cape Fear watershed using MPI, visualizing the results and exporting them to GeoTIFF raster files.| 
+| Krig_Lumber.py | Spatial Kriging | A Python script that performs parallelized hourly Ordinary Kriging interpolation for flooding depth data in the Lumber watershed using MPI, visualizing the results and exporting them to GeoTIFF raster files. | 
+| Krig_Neuse.py | Spatial Kriging |  A Python script that performs parallelized hourly Ordinary Kriging interpolation for flooding depth data in the Neuse watershed using MPI, visualizing the results and exporting them to GeoTIFF raster files. | 
+| Krig_TP.py | Spatial Kriging |  A Python script that performs parallelized hourly Ordinary Kriging interpolation for flooding depth data in the Tar Pamlico watershed using MPI, visualizing the results and exporting them to GeoTIFF raster files. |
+| Krig_White.py | Spatial Kriging | A Python script that performs parallelized hourly Ordinary Kriging interpolation for flooding depth data in the White Oak watershed using MPI, visualizing the results and exporting them to GeoTIFF raster files. | 
+| General_flood_all.py | Impacted Assets | A Python script that determines if a grid asset is flooded over a simulated time period. | 
+| All_files_depth.py | Impacted Assets | A Python script that collects the hourly flooding depth of the grid assets. | 
+
+
 
 
 
